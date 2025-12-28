@@ -1,0 +1,91 @@
+<div>
+    <header id="header">
+      <div class="header-container">
+        
+        <div class="highlight-wrap">
+        <span class="font-codelatin title logo">Codeteca.dev</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="intro" class="font-codelatin font-geist">
+        <p>Soy @alancampora y esta es mi landing the proyectos random que voy a haciendo cuando tengo tiempo!</p>
+      </div>   
+
+      <div id="projects">
+
+
+      </div>   
+
+    </main>
+
+    <footer></footer>
+
+</div>
+
+<style>
+
+    .logo {
+      color:white
+    }
+
+    .highlight-wrap {
+      position: relative;
+      display: inline-block;
+      transform: rotate(-1deg);
+    }
+
+    .highlight-wrap span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .highlight-wrap::before {
+      border-radius: 0.15em;
+      content: "";
+      position: absolute;
+      left: -0.5em;
+      right: -0.5em;
+      bottom: -0.2em;
+      height: 4em;
+      background-color: black;
+      z-index: 0;
+    }
+    
+    .header-container{
+      text-align: center;
+      padding: 1rem;
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 400;
+    }
+
+		main {
+		  height: 100%;
+		  display: flex;
+		  justify-content: center;
+	  }
+
+    #intro {
+      padding: 0.5rem;
+    }
+
+	code {
+		display: inline-block;
+		background:
+			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
+			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
+		border-radius: 8px;
+		border: 1px solid transparent;
+		padding: 6px 8px;
+	}
+
+	@media screen and (max-height: 368px) {
+	}
+
+	@media screen and (max-width: 768px) {
+	}
+</style>
