@@ -5,7 +5,8 @@ const apps = [
   {
     id: "arboleteca",
     name: "Arboleteca",
-    description: "Mapa geoespacial para explorar árboles en la Ciudad de Buenos Aires. Fomentar el conocimiento y un poco de deporte al mismo tiempo",
+    description:
+      "Mapa geoespacial para explorar árboles en la Ciudad de Buenos Aires. Fomentar el conocimiento y un poco de deporte al mismo tiempo",
     href: "/arboleteca",
     repo: "https://github.com/acampora/arboleteca",
     status: "active",
@@ -22,13 +23,12 @@ const apps = [
   },
 ];
 ---
+
 <div class="app-grid">
-    {apps.map((app) => <App {...app} />)}
+  {apps.map((app) => <App {...app} />)}
 </div>
 
-
 <style>
-
   .app-grid {
     display: flex;
     flex-wrap: wrap;
@@ -36,10 +36,10 @@ const apps = [
     align-items: stretch;
   }
 
-	@media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     .app-grid {
       flex-direction: column;
+      align-items: center;
     }
-	}
-
+  }
 </style>

@@ -1,41 +1,45 @@
 ---
 import type { CodetecaApp } from "../../data/apps";
 
-const { name, description, status, tags, repo} = Astro.props as CodetecaApp;
+const { name, description, status, tags, repo } = Astro.props as CodetecaApp;
 
 const statusLabel = (s?: CodetecaApp["status"]) =>
-  s === "active" ? "Active" : s === "wip" ? "WIP" : s === "archived" ? "Archived" : "App";
+  s === "active"
+    ? "Active"
+    : s === "wip"
+      ? "WIP"
+      : s === "archived"
+        ? "Archived"
+        : "App";
 ---
 
 <article class="app-card font-geist">
   <header class="head">
-      <p class="title">{name}</p>
-  <ul class="tags font-codelatin">
-    {tags.map(tag => <li class="tag">{tag}</li>)}
+    <p class="title">{name}</p>
+    <ul class="tags font-codelatin">
+      {tags.map((tag: string[]) => <li class="tag">{tag}</li>)}
     </ul>
   </header>
 
   <section>
-      <p class="desc">{description}</p>
+    <p class="desc">{description}</p>
   </section>
 
-  <footer> 
+  <footer>
     <a href={repo}>
-    <img src="/public/github.png" alt="Github icon" width="30" height="30" />
+      <img src="/public/github.png" alt="Github icon" width="30" height="30" />
     </a>
   </footer>
 </article>
 
-
 <style>
-
   .tags {
     list-style: none;
     justify-content: center;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-    padding:0;
+    padding: 0;
   }
 
   .tag {
@@ -44,9 +48,8 @@ const statusLabel = (s?: CodetecaApp["status"]) =>
     color: var(--muted);
     border: 1px solid var(--border);
     border-radius: 5px;
-    
   }
-  
+
   .app-card {
     --shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
     margin: 1rem;
@@ -54,15 +57,21 @@ const statusLabel = (s?: CodetecaApp["status"]) =>
     padding: 16px;
     gap: 10px;
     box-shadow: var(--shadow);
-    flex:1;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%
   }
- 
+
   .title {
     text-align: center;
     font-size: 2em;
     font-weight: 400;
-    margin:0;
+    margin: 0;
   }
 
-
+  footer {
+    margin-top: auto;
+  }
 </style>
