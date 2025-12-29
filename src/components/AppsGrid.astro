@@ -5,9 +5,9 @@ const apps = [
   {
     id: "arboleteca",
     name: "Arboleteca",
-    description: "Mapa geoespacial para explorar árboles en Buenos Aires.",
+    description: "Mapa geoespacial para explorar árboles en la Ciudad de Buenos Aires. Fomentar el conocimiento y un poco de deporte al mismo tiempo",
     href: "/arboleteca",
-    repo: "https://github.com/tu-user/arboleteca",
+    repo: "https://github.com/acampora/arboleteca",
     status: "active",
     tags: ["astro", "react", "node", "mongo", "geo"],
   },
@@ -23,6 +23,6 @@ const apps = [
 ];
 ---
 <div>
-    {console.log({apps}) || apps.map((app) => <App {...app} />)}
+    {apps.map((app) => <App {...app} />)}
 </div>
 
