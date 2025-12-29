@@ -1,6 +1,10 @@
 import type { CodetecaApp } from "./types";
 
-const REPOS = ["alancampora/arboleteca"];
+const REPOS = [
+  "alancampora/arboleteca", 
+  "alancampora/sobremesa"];
+
+
 
 const raw = (slug: string) =>
   `https://raw.githubusercontent.com/${slug}/main/codeteca.config.json?t=${Date.now()}`;
