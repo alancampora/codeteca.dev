@@ -22,7 +22,24 @@ const apps = [
   },
 ];
 ---
-<div>
+<div class="app-grid">
     {apps.map((app) => <App {...app} />)}
 </div>
 
+
+<style>
+
+  .app-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+	@media screen and (max-width: 768px) {
+    .app-grid {
+      flex-direction: column;
+    }
+	}
+
+</style>
