@@ -1,7 +1,7 @@
 ---
 import type { CodetecaApp } from "../../data/apps";
 
-const { name, description, status, tags} = Astro.props as CodetecaApp;
+const { name, description, status, tags, repo} = Astro.props as CodetecaApp;
 
 const statusLabel = (s?: CodetecaApp["status"]) =>
   s === "active" ? "Active" : s === "wip" ? "WIP" : s === "archived" ? "Archived" : "App";
@@ -20,7 +20,9 @@ const statusLabel = (s?: CodetecaApp["status"]) =>
   </section>
 
   <footer> 
-    <span class="pill">{statusLabel(status)}</span>
+    <a href={repo}>
+    <img src="/public/github.png" alt="Github icon" width="30" height="30" />
+    </a>
   </footer>
 </article>
 

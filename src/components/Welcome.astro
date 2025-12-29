@@ -5,7 +5,6 @@ import AppsGrid from "../components/AppsGrid.astro";
 <div>
     <header id="header">
       <div class="header-container">
-        
         <div class="highlight-wrap">
         <span class="font-codelatin title logo">Codeteca.dev</span>
         </div>
@@ -13,8 +12,8 @@ import AppsGrid from "../components/AppsGrid.astro";
     </header>
 
     <main>
-      <div id="intro" class="font-codelatin font-geist">
-        <p>Soy @alancampora y esta es mi landing the proyectos random que voy a haciendo cuando tengo tiempo!</p>
+      <div class="intro font-geist">
+        <p>Bienvenid@s! Soy <code>@alancampora</code> y esta es web con proyectos que voy armando cuando encuentro un rato!</p>
       </div>   
 
       <div id="projects">
@@ -23,11 +22,16 @@ import AppsGrid from "../components/AppsGrid.astro";
 
     </main>
 
-    <footer></footer>
+    <footer>
+  </footer>
 
 </div>
 
 <style>
+
+  .intro {
+    text-align: center;
+  }
 
     .logo {
       color:white
