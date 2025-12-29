@@ -1,0 +1,37 @@
+---
+import type { CodetecaApp } from "../../data/apps";
+
+const { name, description, status, tags} = Astro.props as CodetecaApp;
+
+const statusLabel = (s?: CodetecaApp["status"]) =>
+  s === "active" ? "Active" : s === "wip" ? "WIP" : s === "archived" ? "Archived" : "App";
+---
+
+<article class="app-card font-geist">
+  <header class="head">
+      <p class="title">{name}</p>
+  </header>
+
+  <section>
+      <p class="desc">{description}</p>
+  </section>
+
+  <footer>
+    {tags.map(tag => <p class="pill">{tag}</p>)}
+    <span class="pill">{statusLabel(status)}</span>
+  </footer>
+</article>
+
+
+<style>
+  .app-card {
+    padding: 1rem;
+
+  }
+  .title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 400;
+    margin:0;
+  }
+</style>

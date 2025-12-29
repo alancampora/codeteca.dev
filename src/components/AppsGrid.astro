@@ -1,0 +1,28 @@
+---
+import App from "../components/App.astro";
+
+const apps = [
+  {
+    id: "arboleteca",
+    name: "Arboleteca",
+    description: "Mapa geoespacial para explorar árboles en Buenos Aires.",
+    href: "/arboleteca",
+    repo: "https://github.com/tu-user/arboleteca",
+    status: "active",
+    tags: ["astro", "react", "node", "mongo", "geo"],
+  },
+  {
+    id: "blogteca",
+    name: "Blogteca",
+    description: "Blog builder con MDX + diseño personalizable.",
+    href: "/blogteca",
+    repo: "https://github.com/tu-user/blogteca",
+    status: "wip",
+    tags: ["mdx", "next", "editor"],
+  },
+];
+---
+<div>
+    {console.log({apps}) || apps.map((app) => <App {...app} />)}
+</div>
+
