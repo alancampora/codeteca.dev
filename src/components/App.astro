@@ -1,5 +1,5 @@
 ---
-import type { CodetecaApp } from "../../data/apps";
+import type { CodetecaApp } from "./types";
 
 const { name, description, status, tags, repo } = Astro.props as CodetecaApp;
 
@@ -17,7 +17,7 @@ const statusLabel = (s?: CodetecaApp["status"]) =>
   <header class="head">
     <p class="title">{name}</p>
     <ul class="tags font-codelatin">
-      {tags.map((tag: string[]) => <li class="tag">{tag}</li>)}
+      {tags?.map((tag: string) => <li class="tag">{tag}</li>)}
     </ul>
   </header>
 
@@ -73,4 +73,5 @@ const statusLabel = (s?: CodetecaApp["status"]) =>
   footer {
     margin-top: auto;
   }
+
 </style>

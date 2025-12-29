@@ -1,7 +1,8 @@
 ---
 import App from "../components/App.astro";
+import {loadApps} from "./load-apps";
 
-const apps = [
+const appsMock = [
   {
     id: "arboleteca",
     name: "Arboleteca",
@@ -22,6 +23,8 @@ const apps = [
     tags: ["mdx", "next", "editor"],
   },
 ];
+
+const apps = import.meta.env.DEV ? appsMock : await loadApps();
 ---
 
 <div class="app-grid">
