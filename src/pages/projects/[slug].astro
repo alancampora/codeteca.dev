@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { loadApps } from "../../data/load-apps";
+import Header from "../../components/Header.astro";
+import { marked } from "marked";
+
+export async function getStaticPaths() {
+  const projects = await loadApps();
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+const contentHtml = project.detailedContent
+  ? marked.parse(project.detailedContent)
+  : null;
+
+const getGitHubData = async (repoUrl: string) => {
+  const [, , , owner, repo] = repoUrl.split("/");
+
+  try {
+    // Info del repo
+    const repoResponse = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}`,
+    );
+    const repoData = await repoResponse.json();
+
+    // Commits recientes
+    const commitsResponse = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/commits?per_page=10`,
+    );
+    const commits = await commitsResponse.json();
+
+    console.log(
+      `https://api.github.com/repos/${owner}/${repo}/commits?per_page=10`,
+    );
+    console.log({ commits });
+
+    return { repoData, commits };
+  } catch (error) {
+    console.error("Error fetching GitHub data:", error);
+    return { repoData: null, commits: [] };
+  }
+};
+
+const { repoData, commits } = await getGitHubData(project.repo);
+---
+
+<Layout title={project.name}>
+  <Header />
+  <main class="container font-geist">
+    <!-- Header -->
+    <header class="project-header">
+      <a href="/" class="back-link">← Volver</a>
+      <h1>{project.name}</h1>
+    </header>
+
+    {contentHtml && <article class="markdown-content" set:html={contentHtml} />}
+  </main>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+</style>
