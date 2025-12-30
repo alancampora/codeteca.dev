@@ -22,5 +22,5 @@ export type CodetecaApp = {
 
   //for markdown content
   hasDetailedContent?: boolean;
-  detailedContent?: string | null;
+  detailedContent?: string | null | undefined;
 };

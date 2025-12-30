@@ -40,8 +40,8 @@ async function loadLocalContent(slug: string): Promise<string | null> {
   }
 }
 
-const raw = (slug: string) =>
-  `https://raw.githubusercontent.com/${slug}/main/codeteca.config.json?t=${Date.now()}`;
+const raw = (slug: string, file: string) =>
+  `https://raw.githubusercontent.com/${slug}/main/${file}?t=${Date.now()}`;
 
 export async function loadApps(): Promise<CodetecaApp[]> {
   if (import.meta.env.DEV) {
@@ -59,18 +59,33 @@ export async function loadApps(): Promise<CodetecaApp[]> {
 
   const settled = await Promise.allSettled(
     REPOS.map(async (slug) => {
-      const res = await fetch(raw(slug));
+      const res = await fetch(raw(slug, 'codeteca.config.json'));
 
       if (!res.ok) {
         throw new Error(`${slug}: ${res.statusText} (${res.status})`);
       }
 
-      return (await res.json()) as CodetecaApp;
+      const config = (await res.json()) as CodetecaApp;
+
+      let detailedContent = null;
+
+      if (config.hasDetailedContent) {
+        try {
+          const contentRes = await fetch(raw(slug, 'codeteca.content.md'));
+          if (contentRes.ok) {
+            detailedContent = await contentRes.text();
+          }
+        } catch (e) {
+          console.warn(`No detailed content for ${slug}`);
+        }
+      }
+
+      return { ...config, detailedContent }
+
     }),
   );
-
   return settled
-    .filter((r): r is PromiseFulfilledResult<CodetecaApp> => {
+    .filter((r): r is PromiseFulfilledResult<any> => {
       if (r.status === "rejected") {
         console.error("Failed to load repo:", r.reason);
         return false;
