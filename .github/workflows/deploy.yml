@@ -25,9 +25,9 @@ jobs:
 
       - name: Debug secrets
         run: |
-          echo "Host is set: ${{ secrets.VPS_HOST != 'nada' }}"
-          echo "User is set: ${{ secrets.VPS_USER != 'nada' }}"
-          echo "Key is set: ${{ secrets.VPS_SSH_KEY != 'nada' }}"
+          echo "Host is set: ${{ secrets.VPS_HOST }}"
+          echo "User is set: ${{ secrets.VPS_USER }}"
+          echo "Key is set: ${{ secrets.VPS_SSH_KEY }}"
       
       - name: Deploy to VPS
         uses: burnett01/rsync-deployments@6.0.0
