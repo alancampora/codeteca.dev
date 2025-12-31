@@ -24,11 +24,11 @@ jobs:
         run: npm run build
       
       - name: Deploy to VPS
-        uses: appleboy/scp-action@v0.1.7
+        uses: easingthemes/ssh-deploy@main
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          source: "dist/*"
-          target: "/var/www/codeteca.dev"
-          strip_components: 1
+          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.VPS_HOST }}
+          REMOTE_USER: ${{ secrets.VPS_USER }}
+          SOURCE: "dist/*"
+          TARGET: "/var/www/codeteca.dev"
+       
