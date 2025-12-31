@@ -3,7 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 import { loadApps } from "../../data/load-apps";
 import Header from "../../components/Header.astro";
 import { marked } from "marked";
-import FancyTitle from "../../components/FancyTitle.astro";
 import { getGitHubData } from "../../data/github";
 import Stat from "../../components/Stat.astro";
 
@@ -32,7 +31,7 @@ const { repoData, commits, contributors, totalCommits } = await getGitHubData(
   <main class="container font-geist">
     <!-- Header -->
     <header class="project-header">
-      <a href="/" class="back-link">← Volver</a>
+      <a href="/" class="back-link font-codelatin">← Volver</a>
       <h1 class="project-title">{project.name}</h1>
       <div class="info">
         <Stat value={totalCommits} label="Commits" />
