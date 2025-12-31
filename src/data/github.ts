@@ -50,7 +50,7 @@ export async function getGitHubData(repoUrl: string) {
     return { repoData, commits, contributors, totalCommits };
   } catch (error) {
     console.error("Error fetching GitHub data:", error);
-    return { repoData: null, commits: [] };
+    return { repoData: null, commits: [], contributors: [], totalCommits: 0 };
   }
 };
 
