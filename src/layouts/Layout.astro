@@ -1,24 +1,34 @@
-<!doctype html> <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=M+PLUS+Code+Latin:wght@100..700&display=swap" rel="stylesheet">
-		<link rel="icon" type="image/svg+xml" href="/favicon-3.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Codeteca.dev</title>
-    	</head>
-	<body>
-		<slot />
-	</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=M+PLUS+Code+Latin:wght@100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon-3.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Codeteca.dev</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  :global(:root) {
+    --shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+    --pink-strong: #ff00ca4d;
+    --pink: #f4cfe4;
+  }
 
   :global(.font-codelatin) {
     font-family: "M PLUS Code Latin", monospace;
@@ -30,7 +40,17 @@
     font-weight: 300;
   }
 
-  :global(.title){
+  :global(.title) {
     font-size: 3em;
+  }
+
+  :global(code) {
+    display: inline-block;
+    background:
+      linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
+      linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 6px 8px;
   }
 </style>

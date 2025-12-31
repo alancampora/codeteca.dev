@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { loadApps } from "../../data/load-apps";
+import Header from "../../components/Header.astro";
+import { marked } from "marked";
+import { getGitHubData } from "../../data/github";
+import Stat from "../../components/Stat.astro";
+
+export async function getStaticPaths() {
+  const projects = await loadApps();
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+const contentHtml = project.detailedContent
+  ? marked.parse(project.detailedContent)
+  : null;
+
+const { repoData, commits, contributors, totalCommits } = await getGitHubData(
+  project.repo,
+);
+---
+
+<Layout title={project.name}>
+  <Header />
+  <main class="container font-geist">
+    <!-- Header -->
+    <header class="project-header">
+      <a href="/" class="back-link font-codelatin">← Volver</a>
+      <h1 class="project-title">{project.name}</h1>
+      <div class="info">
+        <Stat value={totalCommits} label="Commits" />
+        <Stat value={repoData.open_issues} label="Open Issues" />
+        <Stat value={repoData.stargazers_count} label="Stars" />
+      </div>
+    </header>
+
+    {contentHtml && <article class="markdown-content" set:html={contentHtml} />}
+  </main>
+</Layout>
+
+<style>
+  .project-title {
+    margin: 1rem 0;
+    font-size: 3em;
+    font-weight: 400;
+  }
+  .info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .container {
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+</style>

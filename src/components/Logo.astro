@@ -1,0 +1,34 @@
+<div class="header-container">
+  <div class="highlight-wrap">
+    <span class="font-codelatin title logo">Codeteca.dev</span>
+  </div>
+</div>
+
+<style>
+  .logo {
+    color: white;
+  }
+
+  .highlight-wrap {
+    position: relative;
+    display: inline-block;
+    transform: rotate(-1deg);
+  }
+
+  .highlight-wrap span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .highlight-wrap::before {
+    border-radius: 0.15em;
+    content: "";
+    position: absolute;
+    left: -0.5em;
+    right: -0.5em;
+    bottom: -0.2em;
+    height: 4em;
+    background-color: black;
+    z-index: 0;
+  }
+</style>

@@ -1,30 +1,8 @@
 ---
 import App from "../components/App.astro";
-import {loadApps} from "./load-apps";
+import { loadApps } from "../data/load-apps";
 
-const appsMock = [
-  {
-    id: "arboleteca",
-    name: "Arboleteca",
-    description:
-      "Mapa geoespacial para explorar árboles en la Ciudad de Buenos Aires. Fomentar el conocimiento y un poco de deporte al mismo tiempo",
-    href: "/arboleteca",
-    repo: "https://github.com/acampora/arboleteca",
-    status: "active",
-    tags: ["astro", "react", "node", "mongo", "geo"],
-  },
-  {
-    id: "blogteca",
-    name: "Blogteca",
-    description: "Blog builder con MDX + diseño personalizable.",
-    href: "/blogteca",
-    repo: "https://github.com/tu-user/blogteca",
-    status: "wip",
-    tags: ["mdx", "next", "editor"],
-  },
-];
-
-const apps = import.meta.env.DEV ? appsMock : await loadApps();
+const apps = await loadApps();
 ---
 
 <div class="app-grid">
