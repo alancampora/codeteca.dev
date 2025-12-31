@@ -39,12 +39,6 @@ export async function getGitHubData(repoUrl: string) {
     );
     const commits = await commitsResponse.json();
 
-    console.log(
-      `https://api.github.com/repos/${owner}/${repo}/commits?per_page=10`,
-    );
-
-    console.log({ commits });
-
     const contributorsResponse = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/contributors`,
       { headers }
