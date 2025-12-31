@@ -9,18 +9,20 @@ const { value, label } = Astro.props;
 <style>
   .stat {
     background-color: var(--pink);
-    min-width: 100px;
     padding: 5px;
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: center;
     gap: 0.5rem;
+    flex: 1;
+    max-width: 100px;
   }
   .stat-value {
     font-size: 2em;
   }
   .stat-label {
+    text-align: center;
     font-size: 1.15em;
   }
 </style>
