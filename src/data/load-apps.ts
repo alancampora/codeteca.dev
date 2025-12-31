@@ -80,7 +80,7 @@ export async function loadApps(): Promise<CodetecaApp[]> {
         }
       }
 
-      return { ...config, detailedContent }
+      return { ...config, detailedContent };
 
     }),
   );
