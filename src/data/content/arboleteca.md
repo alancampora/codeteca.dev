@@ -1,5 +1,5 @@
 ## Por qué?
-Cerca de mi casa hay un parque muy hermoso y suelo ir bastante. Muchas veces solo camino y otras ademas corro. Una manana me puse a pensar que cada uno de esos arboles seguramente vieron pasar miles de momentos pero sabemos muy poco de ellos. 
+Cerca de mi casa hay un parque muy hermoso y suelo ir bastante. Muchas veces solo camino y otras además corro. Una mañana me puse a pensar que cada uno de esos árboles seguramente vieron pasar miles de momentos pero sabemos muy poco de ellos. 
 
 Por ejemplo: 
 * Hace cuanto tiempo que estan ahi ? 
