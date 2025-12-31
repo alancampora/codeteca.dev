@@ -37,3 +37,13 @@ Por otro lado, a mi parecer, las propiedades son esacasas para lo que buscaba ha
 
 Me hubiese encantado que tenga la edad de cada árbol, con eso podía entender todos los hechos historicos que ese arbol habia atrevesado. Ese feature finalmente lo tuve que dejar de lado, pero por lo menos ya podia lograr una experiencia entre la persona y el arbol: 
 > El usuario camina por la calle, ve un arbol que le gusta, abre la app y encuentra información de los árboles que lo rodean! 🤯
+
+
+<div class="video-container">
+<iframe 
+  src="https://www.youtube.com/embed/jliZ6mKsaiU?playsinline=1"
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+</div>
